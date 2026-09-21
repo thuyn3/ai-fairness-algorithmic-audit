@@ -85,7 +85,7 @@ The project also proposed recommendations for fairness evaluation, human review,
 
 ---
 
-##📊 Model Performance
+## 📊 Model Performance
 
 | Metric    | Result |
 | --------- | -----: |
