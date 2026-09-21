@@ -61,11 +61,41 @@ The model was analyzed for different demographic groups using three fairness cri
 
 The analysis compared differences in prediction rates, recall, and precision between demographic groups.
 
-4. **Validation (SQL → Tableau)**
-   - Cross-check dashboard numbers against SQL rollups (e.g., league zone shares, team PPS/eFG by zone).
-   - Refresh/export CSVs when data update; republish the workbook.
+4. **Explainability**
+
+SHAP (SHapley Additive exPlanations) was applied to identify the features that contributed most strongly to model predictions.
+
+Key features included:
+
+- Marital status
+- Age
+- Capital gain
+- Occupation
+- Education level
+
+5. **Responsible AI & Policy Analysis**
+
+The findings were considered in relation to:
+
+- GDPR
+- Title VII
+- NIST AI Risk Management Framework
+
+The project also proposed recommendations for fairness evaluation, human review, explainability, recourse and documentation ahead of deployment.
 
 ---
+
+##📊 Model Performance
+
+| Metric    | Result |
+| --------- | -----: |
+| Accuracy  |  ~0.85 |
+| AUC-ROC   |  ~0.91 |
+| Precision |  ~0.73 |
+| Recall    |  ~0.64 |
+| F1-score  |  ~0.68 |
+
+```
 
 ## 🔁 Reproducibility
 
