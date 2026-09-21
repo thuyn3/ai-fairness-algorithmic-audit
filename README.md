@@ -40,6 +40,7 @@ How can machine learning models used in hiring and employment introduce or repro
 - Applied one-hot encoding to categorical variables.
 - Split the data into training and testing sets using an 80/20 stratified split.
 2. **Machine Learning Model**
+  
 A Random Forest classifier was developed for binary income classification.
 
 Model evaluation included:
