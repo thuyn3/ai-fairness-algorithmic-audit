@@ -10,11 +10,10 @@
 - SHAP
 - Matplotlib
 - Seaborn
-- 
 ---
 
 ## 🔍 Overview
-How can machine learning models used in hiring and employment introduce or reproduce demographic disparities? This project audits the fairness and accountability of a machine learning classification model using the **UCI Adult Income dataset**. The model predicts whether an individual's income exceeds $50K based on demographic and socioeconomic characteristics. The project evaluates model performance across demographic groups, measures fairness using multiple fairness criteria and applies SHAP to improve model explainability.
+How can machine learning models used in hiring and employment introduce or reproduce demographic disparities? This project audits the fairness and accountability of a machine learning classification model using the **UCI Adult Income dataset**. The model predicts whether an individual's income exceeds $50K based on demographic and socioeconomic characteristics. The project assesses model performance for different demographic groups, measures fairness using multiple fairness criteria and applies SHAP to improve model explainability.
 
 **Core questions**
 
@@ -52,7 +51,7 @@ Model evaluation included:
 - AUC-ROC
 
 The model achieved approximately 85% accuracy and an AUC-ROC of 0.91.
-3. **Dashboard Design (Tableau)**
+3. **Fairness Evaluation**
    - **Shot Zone Analysis**: zone frequency for a selected **Team** and **Player**, side-by-side with **League** for the same season.
    - **FG Analysis**: KPI tiles (Team & Player) and horizontal bars of **FG% / eFG%** by zone; filters for **Season/Team/Player**.
 
