@@ -95,49 +95,91 @@ The project also proposed recommendations for fairness evaluation, human review,
 | Recall    |  ~0.64 |
 | F1-score  |  ~0.68 |
 
-```
+---
 
-## 🔁 Reproducibility
+## ⚖️ Fairness Analysis
 
-**A) Use the curated CSVs (fastest)**
-1. Open the Tableau workbook `Khoi Van - Tableau NBA Analysis Project.twbx`.
-2. Ensure the data connections point to the CSVs in `data/`.
-3. Interact with filters (Season, Team, Player) and view the two dashboards.
+The audit identified differences in model outcomes for different demographic groups.
 
-**B) Rebuild from raw source (end-to-end)**
-1. Download seasons from **DomSamangy/NBA_Shots_04_25**: <https://github.com/DomSamangy/NBA_Shots_04_25>.  
-2. Import the raw CSVs into SQL Server (one table or per-season tables).  
-3. Run `SQLAnalysis.sql` to create the views/rollups.  
-4. Export the aggregated views to CSV → place in `data/`.  
-5. Open the `.twbx` and refresh data sources.
+For example:
+
+- Demographic parity: approximately 27.04% for males vs. 7.98% for females
+- Recall / Equal Opportunity: approximately 65% for males vs. 52% for females
+- Precision / Predictive Parity: approximately 73.7% for males vs. 71.8% for females
+
+These metrics were used to examine different dimensions of fairness rather than relying on a single fairness criterion.
 
 ---
 
-## 📈 Result
+## 🔍 Explainability
 
-**General dashboard guidelines**
-- Global filters: **Season**, **Team**, **Player**.  
-- **Shot Zone Analysis** page: zone frequency breakdown for **Team / League / Player** (same season).  
-- **FG Analysis** page: KPI tiles (Team FG%, Rim Rate, eFG%, PPS; Player FG%, PPS, Rim Rate, eFG%) and per-zone bars.
+SHAP was used to analyze global feature importance and individual model predictions.
 
-**Screenshots**
+The analysis examined whether certain features could act as potential proxies for demographic characteristics and considered how model explanations could support transparency and accountability.
 
-**FG Analysis**  
-![FG Analysis](FG%20Analysis.png)
+---
 
-**Shot Zone Analysis**  
-![Shot Zone Analysis](Shot%20Frequency%20Analysis.png)
+## 📋 Responsible AI Recommendations
+
+Based on the audit, the project proposed a pre-deployment framework including:
+
+- Calculate fairness metrics across relevant demographic groups
+- Monitor gaps in recall and other performance measures
+- Identify potential proxy variables
+- Document fairness and explainability trade-offs
+- Include human review for high-impact decisions
+- Provide plain English explanations of model outputs
+- Provide actionable recourse where appropriate
+- Evaluate data balance before deployment
+
+--- 
+
+## 🔁 Reproducibility
+
+**Quick view**
+
+Open `AI_Fairness_Algorithmic_Audit_Code.ipynb` in GitHub to review the analysis and code.
+
+**Run locally**
+1. Clone the repository
+2. Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+3. Open the notebook:
+
+```bash
+jupyter notebook AI_Fairness_Algorithmic_Audit.ipynb
+```
+The notebook retrieves the UCI Adult dataset programmatically and performs the preprocessing, model development, fairness analysis and SHAP explainability steps.
+
+---
+
+## 📈 Key Findings
+
+- The Random Forest model achieved approximately 85% accuracy and 0.91 AUC-ROC on the classification task.
+- Model performance varied for different demographic groups, particularly in recall.
+- The fairness analysis identified differences in demographic parity and equal opportunity for different gender groups.
+- SHAP analysis identified several influential features, including marital status, age, capital gain, occupation and education level.
+- The project highlights the importance of evaluating fairness, explainability, transparency and human oversight when applying machine learning to high impact domains such as hiring and employment.
+
+*(See the report and notebook for detailed analysis, figures, and supporting results.)*
 
 ---
 
 ## 📚 References
-- **Raw data (shots, 2003–04 → 2024–25):** DomSamangy. _NBA Shots 04–25_. GitHub repository.  
-  <https://github.com/DomSamangy/NBA_Shots_04_25>  
-- Transformations and summaries (SQL views) in `SQLAnalysis.sql`; exported CSVs in `data/`.  
-- Visualization: **Tableau Public** packaged workbook (`.twbx`).
 
----
+1.	Becker, B. & Kohavi, R. (1996). Adult [Dataset]. UCI Machine Learning Repository. 
+https://doi.org/10.24432/C5XW20. 
+ 
+2.	European Union. (2016). General Data Protection Regulation (GDPR), https://eur-lex.europa.eu/eli/reg/2016/679/oj#enc_1 
+ 
+3.	National Institute of Standards and Technology. (2023). Artificial Intelligence Risk Management Framework (AI RMF 1.0) (NIST AI 100-1). https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf 
+ 
+4.	U.S. Equal Employment Opportunity Commission. (n.d.). Title VII of the Civil Rights Act of 1964. 
+https://www.eeoc.gov/statutes/title-vii-civil-rights-act-1964
 
-## 📬 Contact
-For inquiries, feedback, or collaboration, please contact:
-- Khoi Van: van_k1@denison.edu
+*(See the References section in the PDF report for the complete list of sources.)*
+ 
+
