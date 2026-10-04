@@ -150,7 +150,7 @@ pip install -r requirements.txt
 3. Open the notebook:
 
 ```bash
-jupyter notebook AI_Fairness_Algorithmic_Audit.ipynb
+jupyter notebook AI_Fairness_Algorithmic_Audit_Code.ipynb
 ```
 The notebook retrieves the UCI Adult dataset programmatically and performs the preprocessing, model development, fairness analysis and SHAP explainability steps.
 
